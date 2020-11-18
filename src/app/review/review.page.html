@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-row>
+      <ion-title class="title-format">
+        <ion-button routerLink="/home">
+          <ion-icon name="arrow-back-outline"></ion-icon>
+        </ion-button>
+      </ion-title>      
+      <ion-button style="margin-right: 25px;" routerLink="/editCard">
+        <ion-icon name="ellipsis-vertical-outline"></ion-icon>
+      </ion-button>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-row>
+    <div class="div-img">
+      <img class="card-img" src="../../assets/diretivas.jpg">
+    </div>
+  </ion-row>
+  <ion-row>
+    <ion-title class="card-title">
+      Diretivas - 17.09 - Revisão
+    </ion-title>
+    <ion-text style="color: rgba(0, 0, 0, 0.75); margin-left: 25px;">2 cartões</ion-text>
+  </ion-row>
+  <div class="front-card" id="teste">
+  <ion-row>
+      <ion-card>
+        <p class="card-subtitle">Frente</p>
+        <p class="card-body">Lorem</p>
+      </ion-card>
+  </ion-row>
+  <ion-row>
+      <ion-card>
+        <p class="card-subtitle">Frente</p>
+        <p class="card-body">Ipsum</p>
+      </ion-card>
+  </ion-row>
+  </div>
+  <div class="back-card" id="teste2">
+    <ion-row>
+        <ion-card>
+          <p class="card-subtitle">Verso</p>
+          <p class="card-body">Lorem</p>
+        </ion-card>
+    </ion-row>
+    <ion-row>
+        <ion-card>
+          <p class="card-subtitle">Verso</p>
+          <p class="card-body">Ipsum</p>
+        </ion-card>
+    </ion-row>
+  </div>
+  <div class="ion-padding">
+    <ion-button (click)="versoCard()">
+      EXIBIR VERSO
+    </ion-button>
+  </div>
+</ion-content>

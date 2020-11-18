@@ -1,0 +1,40 @@
+  .div-img {
+    height: 128px;
+    display: flex;
+  }
+  
+  .card-img {
+    max-width: 100%;
+    position: relative;
+    object-fit: cover;
+    object-position: center;
+    opacity : 0.5;
+  }
+  
+  .card-title{
+    margin-top: 15px;
+    font-size: 16pt;
+    color: rgba(0, 0, 0, 0.75);
+  }
+
+  .card-subtitle{
+      margin-left: 15px;
+  }
+
+  .card-body{
+      margin-bottom: 40px;
+      font-size: large;
+      text-align: center;
+  }
+
+  .front-card{
+      display: block;
+  }
+
+  .back-card{
+      display: none;
+  }
+
+  ion-card{
+      width: 100%;
+  }
