@@ -14,14 +14,14 @@
 
 
 <ion-content [fullscreen]="true">
-  <ion-list>
-    <ion-item *ngFor="let n of notes">
+  
+    <ion-item *ngFor="let n of notes" button (click)="showNotes(n)">
     <ion-label>
       <h2>{{n.title}}</h2>
       <p>{{n.description}}</p>
     </ion-label>
     </ion-item>
-  </ion-list>
+  
  
   
 </ion-content>

@@ -8,6 +8,7 @@ import { AnotacoesPageRoutingModule } from './anotacoes-routing.module';
 
 import { AnotacoesPage } from './anotacoes.page';
 import { SharedModule } from '../shared/shared.module';
+import { NoteViewComponent } from './note-view/note-view.component';
 
 @NgModule({
   imports: [
@@ -17,6 +18,6 @@ import { SharedModule } from '../shared/shared.module';
     AnotacoesPageRoutingModule,
     SharedModule
   ],
-  declarations: [AnotacoesPage]
+  declarations: [AnotacoesPage, NoteViewComponent]
 })
 export class AnotacoesPageModule {}
