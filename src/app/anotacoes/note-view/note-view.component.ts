@@ -14,4 +14,8 @@ export class NoteViewComponent implements OnInit {
   constructor(private modalController: ModalController) { }
 
   ngOnInit() {}
+
+  public close(){
+    this.modalController.dismiss();
+  }
 }

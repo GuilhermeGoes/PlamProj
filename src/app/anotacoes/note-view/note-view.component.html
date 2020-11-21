@@ -1,3 +1,21 @@
-<p>
-  note-view works!
-</p>
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Visualizar Anotação</ion-title> 
+    <ion-buttons slot="end">
+      <ion-button (click)="close()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>   
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <ion-card>
+    <ion-row class="ion-align-items-center">
+      <ion-col size="auto" class="ion-margin-end">
+        <h1>{{notes.title}}</h1>
+        <p>{{notes.description}}</p>
+      </ion-col>      
+    </ion-row>    
+  </ion-card>
+</ion-content>
