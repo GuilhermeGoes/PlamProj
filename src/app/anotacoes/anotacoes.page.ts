@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { NoteViewComponent} from './note-view/note-view.component';
 
-interface note {
+export interface note {
   title: string;
   description: string;
 }
