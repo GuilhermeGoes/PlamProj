@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { AnnotComponent } from './annot.component';
+import { NotesFormComponent } from './notes-form.component';
 
-describe('AnnotComponent', () => {
-  let component: AnnotComponent;
-  let fixture: ComponentFixture<AnnotComponent>;
+describe('NotesFormComponent', () => {
+  let component: NotesFormComponent;
+  let fixture: ComponentFixture<NotesFormComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AnnotComponent ],
+      declarations: [ NotesFormComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(AnnotComponent);
+    fixture = TestBed.createComponent(NotesFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));
