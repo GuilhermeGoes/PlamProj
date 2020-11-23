@@ -2,13 +2,13 @@ import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AnnotComponent } from './components/annot/annot.component';
 import { TabBarComponent } from './components/tab-bar';
 import { RouterModule } from '@angular/router';
+import { NotesFormComponent } from './components/notes-form/notes-form.component';
 
 @NgModule({
-  declarations: [AnnotComponent, TabBarComponent],
-  exports: [AnnotComponent, TabBarComponent],
+  declarations: [NotesFormComponent, TabBarComponent],
+  exports: [NotesFormComponent, TabBarComponent],
   imports: [
     CommonModule,
     FormsModule,

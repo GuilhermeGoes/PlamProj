@@ -1,21 +1,34 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { NoteViewComponent} from './note-view/note-view.component';
+
+export interface note {
+  title: string;
+  description: string;
+}
 
 @Component({
   selector: 'app-anotacoes',
   templateUrl: './anotacoes.page.html',
   styleUrls: ['./anotacoes.page.scss'],
 })
-export class AnotacoesPage implements OnInit {
+export class AnotacoesPage{
 
-  public Anotacoes = [
-    {id: 1, title: 'Titulo', description: 'Descricao'},
-    {id: 2, title: 'Titulo', description: 'Descricao'},
-    {id: 3, title: 'Titulo', description: 'Descricao'},
-
+  public notes: note[] = [
+    {title: 'Entregar trabalho', description: 'Trabalho de matematica para dia 22/4'},
+    {title: 'Horas', description: 'nao tenho tempo'}
   ];
+  constructor(private modalController: ModalController) { }
 
-
-  constructor() { }
+  async showNotes(notes: note){
+    const modal = await this.modalController.create({
+      component: NoteViewComponent,
+      componentProps: {
+        notes
+      }
+    });
+    await modal.present();
+  }
 
   ngOnInit() {
   }

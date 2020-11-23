@@ -3,7 +3,7 @@
   <ion-toolbar color="primary">
     <ion-row>
       <ion-title class="title-format">
-        ANOTAÇÕES
+        Anotações
       </ion-title>
       <ion-button routerLink="/create">
         <ion-icon name="add-outline"></ion-icon>
@@ -14,35 +14,16 @@
 
 
 <ion-content [fullscreen]="true">
-  <ion-row>
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>Titulo da Anotação</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus minus commodi debitis ipsa vitae illo,
-        deserunt mollitia facilis rerum! Expedita quis cumque maxime laboriosam est, sequi at eligendi consequuntur et.
-      </ion-card-content>
-    </ion-card>
-  </ion-row>
   
-  <ion-row>
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>Titulo da Anotação</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus minus commodi debitis ipsa vitae illo,
-        deserunt mollitia facilis rerum! Expedita quis cumque maxime laboriosam est, sequi at eligendi consequuntur et.
-      </ion-card-content>
-    </ion-card>
-  </ion-row>
+    <ion-item *ngFor="let n of notes" button (click)="showNotes(n)">
+    <ion-label>
+      <h2>{{n.title}}</h2>
+      <p>{{n.description}}</p>
+    </ion-label>
+    </ion-item>
+  
  
-  <ion-fab vertical="center" horizontal="end" slot="fixed" routerLink="/edit">
-    <ion-fab-button color="danger">
-      <ion-icon name="create-outline"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
+  
 </ion-content>
 
 <app-tab-bar></app-tab-bar>
