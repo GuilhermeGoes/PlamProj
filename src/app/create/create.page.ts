@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { note } from '../anotacoes/anotacoes.page';
+import { SaveNoteService } from '../save-note.service';
 
 @Component({
   selector: 'app-create',
@@ -14,9 +15,21 @@ export class CreatePage implements OnInit {
     description: ''
   }
 
-  constructor() { }
+  public notes;
+  public newNotes='';
+
+  constructor(private saveNote : SaveNoteService) { }
 
   ngOnInit() {
+    setTimeout(()=>{
+      this.notes = this.saveNote.allNotes();
+    },1000)
+    
+  }
+
+  public addNotes(){
+    this.saveNote.addNote(this.newNotes);
+    this.newNotes = '';
   }
 
   handleSave(){
