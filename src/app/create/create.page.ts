@@ -28,7 +28,7 @@ export class CreatePage implements OnInit {
   }
 
   public addNotes(){
-    this.saveNote.addNote(this.newNotes);
+    this.saveNote.addNote(this.emptyNote);
     this.newNotes = '';
   }
 

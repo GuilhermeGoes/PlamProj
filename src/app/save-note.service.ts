@@ -4,40 +4,36 @@ import { title } from 'process';
 import { note } from './anotacoes/anotacoes.page';
 import { NotesFormComponent } from './shared/components/notes-form/notes-form.component';
 
-interface Anotacoes {
-  title: string,
-  //description: string;
-}
 
 @Injectable({
   providedIn: 'root'
 })
 export class SaveNoteService {
 
-  private notes: Anotacoes [] = [];
+  private notes: note [] = [];
 
   constructor(private storage: Storage) {
     this.fetchFromStorage();
    }
 
    private async fetchFromStorage(){
-     this.notes = (await this.storage.get('titulo')) ?? [];
-     //this.notes = (await this.storage.get('descricao')) ?? [];
+    this.notes.push(...(await this.storage.get('notes')));
    }
 
    private async updateStorage(){
-     this.storage.set(title, this.notes);
-     //this.storage.set(description, this.notes);
+     this.storage.set('notes', this.notes);
    }
 
   public allNotes(){
     return this.notes; 
   }
 
-  public addNote(title:string){
+  public addNote(notes: note){
     this.notes.push({
-      title
+      title: notes.title, 
+      description: notes.description
     });
+    this.updateStorage();
   }
 
   /*public addNote(title:string, description:string){

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { SaveNoteService } from '../save-note.service';
 import { NoteViewComponent} from './note-view/note-view.component';
 
 export interface note {
@@ -14,11 +15,9 @@ export interface note {
 })
 export class AnotacoesPage{
 
-  public notes: note[] = [
-    {title: 'Entregar trabalho', description: 'Trabalho de matematica para dia 22/4'},
-    {title: 'Horas', description: 'nao tenho tempo'}
-  ];
-  constructor(private modalController: ModalController) { }
+  public notes: note[] =  this.showAnotacao.allNotes();
+
+  constructor(private modalController: ModalController, private showAnotacao: SaveNoteService) { }
 
   async showNotes(notes: note){
     const modal = await this.modalController.create({
