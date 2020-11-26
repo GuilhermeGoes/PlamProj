@@ -5,7 +5,7 @@ import { ReviewPage } from './review.page';
 
 const routes: Routes = [
   {
-    path: '',
+    path: ':id',
     component: ReviewPage
   }
 ];
