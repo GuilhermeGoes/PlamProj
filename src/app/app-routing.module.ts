@@ -27,6 +27,10 @@ const routes: Routes = [
     path: 'review',
     loadChildren: () => import('./review/review.module').then( m => m.ReviewPageModule)
   },
+  {
+    path: 'new-collection',
+    loadChildren: () => import('./new-collection/new-collection.module').then( m => m.NewCollectionPageModule)
+  },
 ];
 
 @NgModule({

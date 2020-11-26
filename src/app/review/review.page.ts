@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { $ } from 'protractor';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-review',
@@ -8,9 +8,12 @@ import { $ } from 'protractor';
 })
 export class ReviewPage implements OnInit {
 
-  constructor() { }
+  public id: number;
 
+  constructor(private route: ActivatedRoute) { }
+  
   ngOnInit() {
+    this.id = +this.route.snapshot.paramMap.get('id');
   }
 
 }
