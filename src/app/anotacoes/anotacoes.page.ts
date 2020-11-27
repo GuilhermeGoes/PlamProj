@@ -4,6 +4,7 @@ import { SaveNoteService } from '../save-note.service';
 import { NoteViewComponent} from './note-view/note-view.component';
 
 export interface note {
+  id: number,
   title: string;
   description: string;
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 import { note } from '../anotacoes/anotacoes.page';
 import { SaveNoteService } from '../save-note.service';
 
@@ -11,6 +12,7 @@ export class CreatePage implements OnInit {
 
   //criação da função de salvar as anotações
   public emptyNote: note = {
+    id: null,
     title: '',
     description: ''
   }
@@ -18,7 +20,7 @@ export class CreatePage implements OnInit {
   public notes;
   public newNotes='';
 
-  constructor(private saveNote : SaveNoteService) { }
+  constructor(private saveNote : SaveNoteService, private navCtrl : NavController) { }
 
   ngOnInit() {
     setTimeout(()=>{
@@ -30,6 +32,7 @@ export class CreatePage implements OnInit {
   public addNotes(){
     this.saveNote.addNote(this.emptyNote);
     this.newNotes = '';
+    this.navCtrl.back();
   }
 
   handleSave(){

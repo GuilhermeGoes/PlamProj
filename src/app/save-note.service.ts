@@ -28,17 +28,37 @@ export class SaveNoteService {
     return this.notes; 
   }
 
+  public empty(): note {
+    return{
+      id: null,
+      title: '',
+      description: ''
+    };
+  }
+
+  public update(updatedNote: note){
+    const idx = this.notes.findIndex(n => n.id === updatedNote.id);
+    this.notes[idx] = updatedNote;
+    this.updateStorage();
+    console.log(idx);
+  }
+
+  public find(id : number){
+    return {...this.notes.find(n => n.id ===id)};
+  }
+
   public addNote(notes: note){
     this.notes.push({
+      id: notes.id,
       title: notes.title, 
       description: notes.description
     });
     this.updateStorage();
   }
 
-  /*public addNote(title:string, description:string){
-    this.notes.push({
-      title, description
-    });this.updateStorage();
-  }*/
+  public create(newNote : note){
+
+   const maxId = Math.max(...this.notes.map(n => n.id));
+    this.notes.push({...newNote, id: maxId + 1});
+  }
 }

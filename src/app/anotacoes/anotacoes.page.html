@@ -12,10 +12,11 @@
   </ion-toolbar>
 </ion-header>
 
+//(click)="showNotes(n)"
 
 <ion-content [fullscreen]="true">
   
-    <ion-item *ngFor="let n of notes" button (click)="showNotes(n)">
+    <ion-item *ngFor="let n of notes" [routerLink]="['/edit', n.id]" button>
     <ion-label>
       <h2>{{n.title}}</h2>
       <p>{{n.description}}</p>
