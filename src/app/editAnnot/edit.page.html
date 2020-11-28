@@ -14,8 +14,15 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
- <ion-list>
+<ion-content><ion-card>
+  <ion-row class="ion-align-items-center">
+    <ion-col size="auto" class="ion-margin-end">
+      <h1>{{notes.title}}</h1>
+      <p>{{notes.description}}</p>
+    </ion-col>      
+  </ion-row>    
+</ion-card>
+ 
    <ion-item>
      <ion-label position="floating">Título</ion-label>
      <ion-input type="text" [(ngModel)]="notes.title"></ion-input>
@@ -23,8 +30,7 @@
    <ion-item>
     <ion-label position="floating">Descrição</ion-label>
     <ion-input type="text" [(ngModel)]="notes.description"></ion-input>
-  </ion-item>
-  </ion-list> 
+  </ion-item> 
 
   <ion-button (click)="save()" expand="block">Salvar</ion-button>
 
