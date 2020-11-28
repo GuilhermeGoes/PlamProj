@@ -5,7 +5,7 @@ import { EditPage } from './edit.page';
 
 const routes: Routes = [
   {
-    path: ':title',
+    path: ':id',
     component: EditPage
   }
 ];

@@ -30,6 +30,7 @@ export class CreatePage implements OnInit {
   }
 
   public addNotes(){
+    //this.create(this.emptyNote);
     this.saveNote.addNote(this.emptyNote);
     this.newNotes = '';
     this.navCtrl.back();

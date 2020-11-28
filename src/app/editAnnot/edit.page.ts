@@ -15,6 +15,7 @@ export class EditPage implements OnInit {
   constructor(private route: ActivatedRoute, private saveNote : SaveNoteService, private navCtrl: NavController ) { }
 
   public notes : note;
+
   
   ngOnInit() {
     const id = +this.route.snapshot.paramMap.get('id');
