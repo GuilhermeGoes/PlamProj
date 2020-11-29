@@ -1,5 +1,8 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/anotacoes"></ion-back-button>
+    </ion-buttons>
     <ion-row>
       <ion-title class="title-format">
         EDITAR ANOTAÇÕES
@@ -11,29 +14,24 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <app-annot></app-annot>
-  <ion-row>
-    <ion-tabs>
-      <ion-tab-bar slot="bottom">
-        <ion-tab-button tab="Home">
-          <!-- mudar dps -->
-          <ion-icon name="home-outline" routerLink="/home"></ion-icon>
-          <ion-label>Home</ion-label>
-        </ion-tab-button>
+<ion-content><ion-card>
+  <ion-row class="ion-align-items-center">
+    <ion-col size="auto" class="ion-margin-end">
+      <h1>{{notes.title}}</h1>
+      <p>{{notes.description}}</p>
+    </ion-col>      
+  </ion-row>    
+</ion-card>
+ 
+   <ion-item>
+     <ion-label position="floating">Título</ion-label>
+     <ion-input type="text" [(ngModel)]="notes.title"></ion-input>
+   </ion-item>
+   <ion-item>
+    <ion-label position="floating">Descrição</ion-label>
+    <ion-input type="text" [(ngModel)]="notes.description"></ion-input>
+  </ion-item> 
 
-        <ion-tab-button tab="Plus">
-          <!-- mudar dps -->
-          <ion-icon name="add-circle-outline"></ion-icon>
-        </ion-tab-button>
-
-        <ion-tab-button tab="anotacoes">
-          <!-- mudar dps -->
-          <ion-icon name="pencil-outline" routerLink="/anotacoes"></ion-icon>
-          <ion-label>Notes</ion-label>
-        </ion-tab-button>
-      </ion-tab-bar>
-    </ion-tabs>
-  </ion-row>
+  <ion-button (click)="save()" expand="block">Salvar</ion-button>
 
 </ion-content>
