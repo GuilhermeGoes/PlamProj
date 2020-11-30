@@ -7,9 +7,13 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class NewCollectionPage implements OnInit {
 
-  title: String = 'NOVA COLEÇÃO';
+  public title: String = 'NOVA COLEÇÃO';
+  public cartoes: Array<number>;
+  public cartoesAdd: number = 2;
 
-  constructor() { }
+  constructor() {
+    this.cartoes = Array(this.cartoesAdd).map((i) => i);
+  }
 
   ngOnInit() {
   }
