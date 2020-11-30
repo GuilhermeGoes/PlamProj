@@ -1,17 +1,43 @@
 .input-collection-name{
     width: 88vw;
     align-items: center;
-    margin: 6% 6% 4%;
+    margin: 6% 6% 2%;
     border-bottom: solid 4px;
 }
 
 .btn {
-    margin: 0px 24px;
+    margin: 0px 16px;
     --box-shadow: none;
 }
 
 .image-icon {
-    font-size: 32px;
-    padding-right: 8px;
+    font-size: 24px;
+    padding-right: 6px;
     --box-shadow: none;
+}
+
+.add-img-text {
+    font-size: 10pt;
+}
+
+ion-card {
+    width: 90vw;
+    height: 30vh;
+    margin: 5% 5% 2%;
+    box-shadow: none;
+    border: 1px solid black;
+    border-radius: 0px;
+
+    ion-label {
+        font-size: 10pt;
+        font-weight: bold;
+    }
+
+    ion-card-header, ion-card-content {
+        padding: 8px 8px 0px 8px;
+    }
+
+    ion-textarea {
+        margin: 0px;
+    }
 }
