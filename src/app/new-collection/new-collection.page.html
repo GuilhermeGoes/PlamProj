@@ -1,14 +1,35 @@
 <app-header [title]="title"></app-header>
 
-<ion-content>
-
-  <ion-input class="input-collection-name" color="secondary" placeholder="Nome da nova coleção"></ion-input>
+<ion-content fullscreen>
+  <ion-input  class="input-collection-name" color="secondary" placeholder="Nome da nova coleção"></ion-input>
 
   <ion-row>
     <ion-button color="light" class="btn">
       <ion-icon name="image-outline" class="image-icon"></ion-icon>
-      <p>Adicionar Capa</p>
+      <ion-text class="add-img-text">Adicionar Capa</ion-text>
     </ion-button>
   </ion-row>
 
+  <ion-row *ngFor="let card of cards">
+    <ion-card>
+      <ion-card-header>
+        <ion-label position="stacked">Frente</ion-label>
+        <ion-item lines="full">
+          <ion-input color="dark" placeholder="Termo"></ion-input>
+        </ion-item>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-label position="stacked">Verso</ion-label>
+        <ion-item lines="none">
+          <ion-textarea placeholder="Definição"></ion-textarea>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+  </ion-row>
 </ion-content>
+
+<ion-toolbar >
+  <ion-button size="small" slot="end" shape="round" class="btn-add" (click)="addCard()">
+    <ion-icon name="add-outline"></ion-icon>
+  </ion-button>
+</ion-toolbar>

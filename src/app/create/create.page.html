@@ -1,9 +1,9 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="primary">    
     <ion-row>
-      <ionbuttons>
+      <ion-button>
         <ion-back-button defaultHref="/anotacoes"></ion-back-button>
-      </ionbuttons>
+      </ion-button>
       <ion-title class="title-format">
         CRIAR ANOTAÇÕES
       </ion-title>
@@ -13,7 +13,5 @@
 </ion-header>
 
 <ion-content>
-  <app-notes-form></app-notes-form>
-  
-
+  <app-notes-form [note] = "emptyNote" (save)="addNotes()"></app-notes-form>
 </ion-content>
