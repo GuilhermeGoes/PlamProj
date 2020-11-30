@@ -41,3 +41,20 @@ ion-card {
         margin: 0px;
     }
 }
+
+ion-toolbar {
+    --background: transparent;
+    --ion-color-base: transparent !important;
+
+    ion-button {
+        width: 64px;
+        height: 64px;
+        padding-bottom: 8px;
+        padding-right: 8px;
+        opacity: 90%;
+
+        ion-icon {
+            font-size: 24pt;
+        }
+    }
+}

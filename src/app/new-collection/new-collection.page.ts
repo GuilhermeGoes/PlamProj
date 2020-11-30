@@ -8,14 +8,26 @@ import { Component, Input, OnInit } from '@angular/core';
 export class NewCollectionPage implements OnInit {
 
   public title: String = 'NOVA COLEÇÃO';
-  public cartoes: Array<number>;
-  public cartoesAdd: number = 2;
+  public cards: Array<number>;
+  public cardsAdd: number = 2;
 
   constructor() {
-    this.cartoes = Array(this.cartoesAdd).map((i) => i);
+    this.showCards();
   }
 
   ngOnInit() {
   }
 
+  public addCard() {
+    const cardLimit = 25;
+
+    if (this.cardsAdd < cardLimit)
+      this.cardsAdd++;
+
+    this.showCards();
+  }
+
+  private showCards() {
+    this.cards = Array(this.cardsAdd).map((i) => i);
+  }
 }

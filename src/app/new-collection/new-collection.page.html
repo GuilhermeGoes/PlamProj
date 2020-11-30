@@ -1,7 +1,6 @@
 <app-header [title]="title"></app-header>
 
-<ion-content>
-  
+<ion-content fullscreen>
   <ion-input  class="input-collection-name" color="secondary" placeholder="Nome da nova coleção"></ion-input>
 
   <ion-row>
@@ -11,7 +10,7 @@
     </ion-button>
   </ion-row>
 
-  <ion-row *ngFor="let cartao of cartoes">
+  <ion-row *ngFor="let card of cards">
     <ion-card>
       <ion-card-header>
         <ion-label position="stacked">Frente</ion-label>
@@ -27,5 +26,10 @@
       </ion-card-content>
     </ion-card>
   </ion-row>
-
 </ion-content>
+
+<ion-toolbar >
+  <ion-button size="small" slot="end" shape="round" class="btn-add" (click)="addCard()">
+    <ion-icon name="add-outline"></ion-icon>
+  </ion-button>
+</ion-toolbar>
