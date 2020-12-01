@@ -1,20 +1,25 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { Component, OnInit, ElementRef } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { CollectionService } from '../services/collection.service';
 
-import { IonicModule } from '@ionic/angular';
-
-import { ReviewPageRoutingModule } from './review-routing.module';
-
-import { ReviewPage } from './review.page';
-
-@NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    ReviewPageRoutingModule
-  ],
-  declarations: [ReviewPage]
+@Component({
+  selector: 'app-review',
+  templateUrl: './review.page.html',
+  styleUrls: ['./review.page.scss'],
 })
-export class ReviewPageModule {}
+export class ReviewPage implements OnInit {
+
+  public id: number;
+
+  constructor(private route: ActivatedRoute) { }
+  
+  ngOnInit() {
+    this.id = +this.route.snapshot.paramMap.get('id');
+  }
+
+  public flipCard(){
+    console.log('meu botão');
+  }
+
+}
+
