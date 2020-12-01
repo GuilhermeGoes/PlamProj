@@ -1,14 +1,11 @@
-  .div-img {
-    height: 128px;
-    display: flex;
-  }
-  
   .card-img {
-    max-width: 100%;
+    min-width: 100%;
     position: relative;
     object-fit: cover;
     object-position: center;
     opacity : 0.5;
+    height: 128px;
+    display: flex;
   }
   
   .card-title{
@@ -19,6 +16,12 @@
 
   .card-subtitle{
       margin-left: 15px;
+  }
+
+  .total-cards{
+    padding-right: 15px; 
+    margin-top: 15px; 
+    font-size: 12px;
   }
 
   .card-body{
