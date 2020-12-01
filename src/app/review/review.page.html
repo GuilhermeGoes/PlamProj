@@ -15,47 +15,19 @@
 
 <ion-content [fullscreen]="true">
   <ion-row>
-    <div class="div-img">
       <img class="card-img" src="../../assets/diretivas.jpg">
-    </div>
-  </ion-row>
-  <ion-row>
-    <ion-title class="card-title">
-      Diretivas - 17.09 - Revisão {{id}}
-    </ion-title>
-    <ion-text style="color: rgba(0, 0, 0, 0.75); margin-left: 25px;">2 cartões</ion-text>
-  </ion-row>
-  <div class="front-card" id="teste">
-  <ion-row>
-      <ion-card>
-        <p class="card-subtitle">Frente</p>
-        <p class="card-body">Lorem</p>
-      </ion-card>
-  </ion-row>
-  <ion-row>
-      <ion-card>
-        <p class="card-subtitle">Frente</p>
-        <p class="card-body">Ipsum</p>
-      </ion-card>
-  </ion-row>
-  </div>
-  <div class="back-card" id="teste2">
-    <ion-row>
-        <ion-card>
-          <p class="card-subtitle">Verso</p>
+        <ion-title class="card-title">
+          Título {{id}}
+        </ion-title>
+        <ion-text class="total-cards">2 cartões</ion-text>
+        <ion-card class="front-card" type="button" (click)="flipCard()">
+          <p class="card-subtitle">Frente</p>
           <p class="card-body">Lorem</p>
         </ion-card>
-    </ion-row>
-    <ion-row>
-        <ion-card>
+        <ion-card class="back-card" id="testeVerso">
           <p class="card-subtitle">Verso</p>
           <p class="card-body">Ipsum</p>
         </ion-card>
-    </ion-row>
-  </div>
-  <div class="ion-padding">
-    <ion-button (click)="versoCard()">
-      EXIBIR VERSO
-    </ion-button>
-  </div>
+  </ion-row>
+
 </ion-content>
