@@ -30,7 +30,7 @@ const routes: Routes = [
   {
     path: 'new-collection',
     loadChildren: () => import('./new-collection/new-collection.module').then( m => m.NewCollectionPageModule)
-  },
+  }
 ];
 
 @NgModule({
