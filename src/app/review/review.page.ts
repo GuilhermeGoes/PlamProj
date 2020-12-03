@@ -1,6 +1,7 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { CollectionService, Collection } from '../services/collection.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { CollectionService, Collection, Card } from '../services/collection.service';
 
 @Component({
   selector: 'app-review',
@@ -10,14 +11,24 @@ import { CollectionService, Collection } from '../services/collection.service';
 export class ReviewPage implements OnInit {
 
   public id: number;
+  public currentCollection: Collection;
+  public cards: Array<Card>;
 
-  public collection: Collection;
-
-
-  constructor(private route: ActivatedRoute) { }
+  constructor(private activatedRoute: ActivatedRoute, private router: Router, private collection: CollectionService) {
+  }
   
   ngOnInit() {
-    this.id = +this.route.snapshot.paramMap.get('id');
+    this.id = +this.activatedRoute.snapshot.paramMap.get('id');
+    this.getCollection();
+  }
+
+  public getCollection() {
+    this.currentCollection = this.collection.find(this.id);
+    this.getCards();
+  }
+
+  public getCards(){
+    this.cards = this.currentCollection.cards
   }
 
   public flipCard(){
