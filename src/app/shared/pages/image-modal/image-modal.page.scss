@@ -1,0 +1,11 @@
+.div-img {
+    height: 128px;
+    display: flex;
+    margin: 8px 8px 8px;
+}
+
+.cover-img {
+    width: 100vw;
+    position: relative;
+    object-fit: cover;
+}
