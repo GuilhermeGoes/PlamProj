@@ -13,6 +13,8 @@ export class ReviewPage implements OnInit {
   public id: number;
   public currentCollection: Collection;
   public cards: Array<Card>;
+  public isFront: boolean = true;
+  public isBack: boolean = false;
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router, private collection: CollectionService) {
   }
@@ -32,7 +34,13 @@ export class ReviewPage implements OnInit {
   }
 
   public flipCard(){
-    console.log('meu botão');
+    if(this.isFront) {
+      this.isFront = false;
+      this.isBack = true;
+    } else {
+      this.isFront = true;
+      this.isBack = false;
+    }
   }
 
 }

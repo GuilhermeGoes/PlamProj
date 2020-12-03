@@ -24,9 +24,13 @@
   <ion-item lines="none" *ngFor="let card of cards; let indexCard = index; let firstCard = first;">
     <ion-row class="card-dim">
       <ion-col>
-        <ion-card class="front-card" type="button" (click)="flipCard()">
+        <ion-card *ngIf="isFront" class="front-card" type="button" (click)="flipCard()">
           <p class="card-subtitle">Frente</p>
           <p class="card-body">{{card.front}}</p>
+        </ion-card>
+        <ion-card *ngIf="isBack" class="front-card" type="button" (click)="flipCard()">
+          <p class="card-subtitle">Verso</p>
+          <p class="card-body">{{card.back}}</p>
         </ion-card>
       </ion-col>
     </ion-row>
