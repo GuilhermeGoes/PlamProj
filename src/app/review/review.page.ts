@@ -28,7 +28,7 @@ export class ReviewPage implements OnInit {
   }
 
   public getCards(){
-    this.cards = this.currentCollection.cards
+    this.cards = this.currentCollection.cards;
   }
 
   public flipCard(){
