@@ -30,10 +30,14 @@
     margin: 6% 6% 2%;
 }
 
+.item-form {
+    padding-left: 0px;
+}
+
 ion-card {
     width: 90vw;
-    height: 30vh;
-    margin: 5% 5% 2%;
+    height: 32vh;
+    margin: 5% 0% 2%;
     box-shadow: none;
     border: 1px solid black;
     border-radius: 0px;
@@ -67,4 +71,30 @@ ion-toolbar {
             font-size: 24pt;
         }
     }
+}
+
+.div-img {
+    display: flex;
+    width: 100vw;
+    height: 128px;
+    margin-bottom: 16px;
+}
+    
+.cover-img {
+    width: 100vw;
+    position: relative;
+    object-fit: cover;
+    opacity: 75%;
+}
+
+.remove-card {
+    font-size: 12pt;
+    color: red;
+}
+
+.btn-remove {
+    height: 16px;
+    padding-top: 0px;
+    padding-bottom: 2px;
+    --box-shadow: none;
 }

@@ -4,6 +4,10 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Collection, CollectionService } from '../services/collection.service';
 import { NavController, ModalController } from '@ionic/angular';
 
+import { Card } from '../shared/models/card'
+import { FormGroup } from '@angular/forms';
+import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
+
 @Component({
   selector: 'app-new-collection',
   templateUrl: './new-collection.page.html',
@@ -12,40 +16,47 @@ import { NavController, ModalController } from '@ionic/angular';
 export class NewCollectionPage implements OnInit {
 
   public title: String = 'NOVA COLEÇÃO';
-  public cards: Array<number>;
+  public cards: Array<Card> = [];
   public cardsAdd: number = 2;
+  public cover: string = null;
+  public hasCover: boolean = false;
+  public collectionName: string;
+  public cardMaxLimit = 25;
+  public cardMinLimit = 2;
+  public cardForm: FormGroup;
+
+  public collection: Array<any>;
 
   public emptyCollection: Collection = {
     id: null,
     title: '',
-    description: '',
+    // description: '',
     image: '',
-    card: 
-      [{frente: '',
-      verso: ''}]
+    cards: []
   }
 
   public collections;
   public newCollections='';
 
-  constructor(private saveCollection: CollectionService, private navCtrl : NavController, public modalController: ModalController) {
-    this.showCards();
+  constructor(private saveCollection: CollectionService, private navCtrl : NavController, public modalController: ModalController) { 
+    for(let i = 0; i < this.cardMinLimit; i++) {
+      this.addNewReply();
+    }
   }
 
   ngOnInit() {
   }
 
-  public addCard() {
-    const cardLimit = 25;
-
-    if (this.cardsAdd < cardLimit)
-      this.cardsAdd++;
-
-    this.showCards();
+  public addNewReply() {
+    if (this.cards.length < this.cardMaxLimit) {
+      let newCard = new Card();
+      this.cards.push(newCard);
+    }
   }
 
-  private showCards() {
-    this.cards = Array(this.cardsAdd).map((i) => i);
+  public removeCard(card) {
+    if (this.cards.length > this.cardMinLimit)
+      this.cards.splice(this.cards.indexOf(card), 1);
   }
 
   async presentModal() {
@@ -54,10 +65,12 @@ export class NewCollectionPage implements OnInit {
       cssClass: 'my-custom-class'
     });
 
-    // modal.onDidDismiss()
-    //   .then((data) => {
-    //     const user = data['data']; // Here's your selected user!
-    // });
+    modal.onDidDismiss()
+      .then((data) => {
+        this.cover = data['data'];
+        this.hasCover = true;
+      })
+
     return await modal.present();
   }
   
@@ -67,7 +80,25 @@ export class NewCollectionPage implements OnInit {
     this.navCtrl.back();
   }
 
-  handleSave(){
+  public handleSave(){
     console.log(this.emptyCollection);
+  }
+
+  public setCollection() {
+    let index = 0;
+
+    this.cards.forEach(x => {
+      this.emptyCollection.cards.push(
+        this.emptyCollection.cards[index] = { front: x.front, back: x.back} 
+      )
+
+      index++;
+    })
+
+    this.emptyCollection.image = this.cover;
+    this.emptyCollection.title = this.collectionName;
+    
+    this.addCollections();
+
   }
 }

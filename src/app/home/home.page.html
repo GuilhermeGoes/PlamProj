@@ -11,17 +11,17 @@
     <p class="current-date">Qui 15/10</p>
   </ion-row>
 
-  <ion-row *ngFor="let colecao of colecoes">
+  <ion-row *ngFor="let colecao of colecoes; let indexCard = index; let firstCard = first;">
     <ion-card>
-      <div class="div-img">
+      <div class="div-img" *ngIf="colecao.image">
         <img class="card-img" src={{colecao.image}} alt="imagem">
       </div>
       <ion-card-header>
         <ion-card-title>{{colecao.title}}</ion-card-title>
       </ion-card-header>
-      <ion-card-content>
+      <!-- <ion-card-content>
         <p>{{colecao.description}}</p>
-      </ion-card-content>
+      </ion-card-content> -->
       <ion-button routerLink="/review/{{colecao.id}}" color="primary" type="button" size="default">Revisar conteúdo</ion-button>
     </ion-card>
   </ion-row>
