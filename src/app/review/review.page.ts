@@ -1,6 +1,6 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { CollectionService } from '../services/collection.service';
+import { CollectionService, Collection } from '../services/collection.service';
 
 @Component({
   selector: 'app-review',
@@ -10,6 +10,9 @@ import { CollectionService } from '../services/collection.service';
 export class ReviewPage implements OnInit {
 
   public id: number;
+
+  public collection: Collection;
+
 
   constructor(private route: ActivatedRoute) { }
   

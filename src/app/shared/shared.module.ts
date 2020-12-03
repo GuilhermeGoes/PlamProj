@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { TabBarComponent } from './components/tab-bar';
 import { NotesFormComponent } from './components/notes-form/notes-form.component';
 import { HeaderComponent } from './components/header/header.component';
+import { CollectionsFormComponent } from './components/collections-form/collections-form.component';
 
 import { ImageModalPageModule } from './pages/image-modal/image-modal.module';
 
@@ -14,12 +15,14 @@ import { ImageModalPageModule } from './pages/image-modal/image-modal.module';
   declarations: [
     NotesFormComponent, 
     TabBarComponent, 
-    HeaderComponent
+    HeaderComponent,
+    CollectionsFormComponent
   ],
   exports: [
     NotesFormComponent, 
     TabBarComponent, 
-    HeaderComponent
+    HeaderComponent,
+    CollectionsFormComponent
   ],
   imports: [
     CommonModule,

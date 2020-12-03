@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, Input, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
-
 import { ImageModalPage } from '../shared/pages/image-modal/image-modal.page';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Collection, CollectionService } from '../services/collection.service';
+import { NavController, ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-new-collection',
@@ -15,7 +15,20 @@ export class NewCollectionPage implements OnInit {
   public cards: Array<number>;
   public cardsAdd: number = 2;
 
-  constructor(public modalController: ModalController) {
+  public emptyCollection: Collection = {
+    id: null,
+    title: '',
+    description: '',
+    image: '',
+    card: 
+      [{frente: '',
+      verso: ''}]
+  }
+
+  public collections;
+  public newCollections='';
+
+  constructor(private saveCollection: CollectionService, private navCtrl : NavController, public modalController: ModalController) {
     this.showCards();
   }
 
@@ -46,5 +59,15 @@ export class NewCollectionPage implements OnInit {
     //     const user = data['data']; // Here's your selected user!
     // });
     return await modal.present();
+  }
+  
+  public addCollections(){
+    this.saveCollection.addCollection(this.emptyCollection);
+    this.newCollections = '';
+    this.navCtrl.back();
+  }
+
+  handleSave(){
+    console.log(this.emptyCollection);
   }
 }

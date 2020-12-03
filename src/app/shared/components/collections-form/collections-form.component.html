@@ -1,0 +1,28 @@
+  <ion-input  class="input-collection-name" color="secondary" [(ngModel)]="collection.title" placeholder="Nome da nova coleção"></ion-input>
+  <ion-input  class="input-collection-description"  [(ngModel)]="collection.description" placeholder="Entre com a descrição..."></ion-input>
+  <ion-row>
+    <ion-button color="light" class="btn">
+      <ion-icon name="image-outline" class="image-icon"></ion-icon>
+      <ion-text class="add-img-text">Adicionar Capa</ion-text>
+    </ion-button>
+  </ion-row>
+<ion-row >
+  <ion-card>
+    <ion-card-header>
+      <ion-label position="stacked">Frente</ion-label>
+      <ion-item lines="full">
+        <ion-input color="dark" placeholder="Termo" [(ngModel)]="collection.Frente"></ion-input>
+      </ion-item>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-label position="stacked">Verso</ion-label>
+      <ion-item lines="none">
+        <ion-textarea placeholder="Definição" [(ngModel)]="collection.Verso"></ion-textarea>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+</ion-row>
+<ion-button expand="block" (click)="save.emit()"> 
+  <ion-icon slot="start" name="save"></ion-icon>
+  Salvar
+</ion-button>
