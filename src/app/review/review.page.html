@@ -22,7 +22,7 @@
     <ion-text class="total-cards">2 cartões</ion-text>
   </ion-row>
   <ion-item lines="none" *ngFor="let card of cards; let indexCard = index; let firstCard = first;">
-    <ion-row>
+    <ion-row class="card-dim">
       <ion-col>
         <ion-card class="front-card" type="button" (click)="flipCard()">
           <p class="card-subtitle">Frente</p>
