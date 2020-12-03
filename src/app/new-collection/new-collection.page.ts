@@ -87,20 +87,17 @@ export class NewCollectionPage implements OnInit {
   public setCollection() {
     let index = 0;
 
-    console.log(this.cards.length)
-
     this.cards.forEach(x => {
       this.emptyCollection.cards.push(
         this.emptyCollection.cards[index] = { front: x.front, back: x.back} 
       )
-      console.log(this.emptyCollection.cards[index]);
+
       index++;
     })
 
     this.emptyCollection.image = this.cover;
     this.emptyCollection.title = this.collectionName;
     
-    console.log(this.emptyCollection);
     this.addCollections();
 
   }

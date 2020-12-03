@@ -33,7 +33,6 @@ export class CollectionService {
   public addCollection(collection: Collection){
     const maxId = Math.max(...this.collections.map(n => n.id), 0);
 
-    console.log(collection.cards)
     this.collections.push({
       id: maxId + 1,
       title: collection.title, 
@@ -41,6 +40,7 @@ export class CollectionService {
       image: collection.image,
       cards: collection.cards
     });
+    
     this.storeData();
   }
 
