@@ -1,40 +1,43 @@
-  .div-img {
-    height: 128px;
-    display: flex;
-  }
-  
-  .card-img {
-    max-width: 100%;
-    position: relative;
-    object-fit: cover;
-    object-position: center;
-    opacity : 0.5;
-  }
-  
-  .card-title{
-    margin-top: 15px;
-    font-size: 16pt;
-    color: rgba(0, 0, 0, 0.75);
-  }
+.card-img {
+  min-width: 100%;
+  position: relative;
+  object-fit: cover;
+  object-position: center;
+  opacity : 0.5;
+  height: 128px;
+  display: flex;
+}
 
-  .card-subtitle{
-      margin-left: 15px;
-  }
+.card-title{
+  margin-top: 15px;
+  font-size: 16pt;
+  color: rgba(0, 0, 0, 0.75);
+}
 
-  .card-body{
-      margin-bottom: 40px;
-      font-size: large;
-      text-align: center;
-  }
+.card-subtitle{
+    margin-left: 15px;
+}
 
-  .front-card{
-      display: block;
-  }
+.total-cards{
+  padding-right: 15px; 
+  margin-top: 15px; 
+  font-size: 12px;
+}
 
-  .back-card{
-      display: none;
-  }
+.card-body{
+    margin-bottom: 40px;
+    font-size: large;
+    text-align: center;
+}
 
-  ion-card{
-      width: 100%;
-  }
+.front-card{
+    display: block;
+}
+
+.back-card{
+    display: none;
+}
+
+ion-card{
+    width: 100%;
+}

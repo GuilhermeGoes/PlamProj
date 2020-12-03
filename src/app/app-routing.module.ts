@@ -30,11 +30,12 @@ const routes: Routes = [
   {
     path: 'new-collection',
     loadChildren: () => import('./new-collection/new-collection.module').then( m => m.NewCollectionPageModule)
-  },  {
+  },
+  {
     path: 'image-modal',
     loadChildren: () => import('./shared/pages/image-modal/image-modal.module').then( m => m.ImageModalPageModule)
   },
-
+  
 ];
 
 @NgModule({

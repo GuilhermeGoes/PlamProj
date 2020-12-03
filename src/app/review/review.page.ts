@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CollectionService } from '../services/collection.service';
 
 @Component({
   selector: 'app-review',
@@ -16,5 +17,8 @@ export class ReviewPage implements OnInit {
     this.id = +this.route.snapshot.paramMap.get('id');
   }
 
-}
+  public flipCard(){
+    console.log('meu botão');
+  }
 
+}
