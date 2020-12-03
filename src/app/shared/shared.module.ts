@@ -2,10 +2,13 @@ import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TabBarComponent } from './components/tab-bar';
 import { RouterModule } from '@angular/router';
+
+import { TabBarComponent } from './components/tab-bar';
 import { NotesFormComponent } from './components/notes-form/notes-form.component';
 import { HeaderComponent } from './components/header/header.component';
+
+import { ImageModalPageModule } from './pages/image-modal/image-modal.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,8 @@ import { HeaderComponent } from './components/header/header.component';
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule
+    RouterModule,
+    ImageModalPageModule
   ]
 })
 export class SharedModule { }

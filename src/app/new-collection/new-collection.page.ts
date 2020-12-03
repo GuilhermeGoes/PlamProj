@@ -1,4 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+
+import { ImageModalPage } from '../shared/pages/image-modal/image-modal.page';
 
 @Component({
   selector: 'app-new-collection',
@@ -11,7 +15,7 @@ export class NewCollectionPage implements OnInit {
   public cards: Array<number>;
   public cardsAdd: number = 2;
 
-  constructor() {
+  constructor(public modalController: ModalController) {
     this.showCards();
   }
 
@@ -29,5 +33,18 @@ export class NewCollectionPage implements OnInit {
 
   private showCards() {
     this.cards = Array(this.cardsAdd).map((i) => i);
+  }
+
+  async presentModal() {
+    const modal = await this.modalController.create({
+      component: ImageModalPage,
+      cssClass: 'my-custom-class'
+    });
+
+    // modal.onDidDismiss()
+    //   .then((data) => {
+    //     const user = data['data']; // Here's your selected user!
+    // });
+    return await modal.present();
   }
 }
