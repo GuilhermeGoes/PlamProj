@@ -1,4 +1,4 @@
-<app-header [title]="title"></app-header>
+<app-header [title]="title" (click)="setCollection()"></app-header>
 
 <ion-content fullscreen>
   <ion-row *ngIf="!hasCover" class="add-img-row">
@@ -14,35 +14,37 @@
 
   <ion-input class="input-collection-name" color="secondary" [(ngModel)]="collectionName" placeholder="Nome da nova coleção"></ion-input>
   <!-- <ion-input class="input-collection-description" placeholder="Entre com a descrição..."></ion-input> -->
-  <ion-row *ngFor="let card of cards; let indexCard = index; let firstCard = first;">
-    <ion-card>
-      <ion-card-header>
-        <ion-row>
-          <ion-col size="10">
-            <ion-label position="stacked">Frente</ion-label>
-          </ion-col>
-          <ion-col size="1">
-            <ion-button color="none" size="small" shape="round" class="btn-remove" (click)="removeCard(card)">
-              <ion-icon class="remove-card" name="remove-circle-outline"></ion-icon>
-            </ion-button>
-          </ion-col>
-        </ion-row>
-        <ion-item lines="full">
-          <ion-input color="dark" [(ngModel)]="card.front" placeholder="Termo"></ion-input>
-        </ion-item>
-      </ion-card-header>
-      <ion-card-content>
-        <ion-row>
-          <ion-col>
-            <ion-label position="stacked">Verso</ion-label>
-          </ion-col>
-        </ion-row>
-        <ion-item lines="none">
-          <ion-textarea [(ngModel)]="card.back"  placeholder="Definição"></ion-textarea>
-        </ion-item>
-      </ion-card-content>
-    </ion-card>
-  </ion-row>
+  <ion-item>
+    <ion-row *ngFor="let card of cards; let indexCard = index; let firstCard = first;">
+      <ion-card>
+        <ion-card-header>
+          <ion-row>
+            <ion-col size="10">
+              <ion-label position="stacked">Frente</ion-label>
+            </ion-col>
+            <ion-col size="1">
+              <ion-button color="none" size="small" shape="round" class="btn-remove" (click)="removeCard(card)">
+                <ion-icon class="remove-card" name="remove-circle-outline"></ion-icon>
+              </ion-button>
+            </ion-col>
+          </ion-row>
+          <ion-item lines="full">
+            <ion-input color="dark" [(ngModel)]="card.front" placeholder="Termo"></ion-input>
+          </ion-item>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-row>
+            <ion-col>
+              <ion-label position="stacked">Verso</ion-label>
+            </ion-col>
+          </ion-row>
+          <ion-item lines="none">
+            <ion-textarea [(ngModel)]="card.back"  placeholder="Definição"></ion-textarea>
+          </ion-item>
+        </ion-card-content>
+      </ion-card>
+    </ion-row>
+  </ion-item>
   <!-- <app-collections-form [collection]="emptyCollection"></app-collections-form> -->
 </ion-content>
 

@@ -5,6 +5,8 @@ import { Collection, CollectionService } from '../services/collection.service';
 import { NavController, ModalController } from '@ionic/angular';
 
 import { Card } from '../shared/models/card'
+import { FormGroup } from '@angular/forms';
+import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
 
 @Component({
   selector: 'app-new-collection',
@@ -21,6 +23,9 @@ export class NewCollectionPage implements OnInit {
   public collectionName: string;
   public cardMaxLimit = 25;
   public cardMinLimit = 2;
+  public cardForm: FormGroup;
+
+  public collection: Array<any>;
 
   public emptyCollection: Collection = {
     id: null,
@@ -70,12 +75,33 @@ export class NewCollectionPage implements OnInit {
   }
   
   public addCollections(){
-    // this.saveCollection.addCollection(this.emptyCollection);
+    this.saveCollection.addCollection(this.emptyCollection);
     this.newCollections = '';
     this.navCtrl.back();
   }
 
   public handleSave(){
     console.log(this.emptyCollection);
+  }
+
+  public setCollection() {
+    let index = 0;
+
+    console.log(this.cards.length)
+
+    this.cards.forEach(x => {
+      this.emptyCollection.cards.push(
+        this.emptyCollection.cards[index] = { front: x.front, back: x.back} 
+      )
+      console.log(this.emptyCollection.cards[index]);
+      index++;
+    })
+
+    this.emptyCollection.image = this.cover;
+    this.emptyCollection.title = this.collectionName;
+    
+    console.log(this.emptyCollection);
+    this.addCollections();
+
   }
 }
