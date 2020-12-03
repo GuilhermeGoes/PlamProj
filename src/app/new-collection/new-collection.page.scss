@@ -32,7 +32,7 @@
 
 ion-card {
     width: 90vw;
-    height: 30vh;
+    height: 32vh;
     margin: 5% 5% 2%;
     box-shadow: none;
     border: 1px solid black;
@@ -81,4 +81,16 @@ ion-toolbar {
     position: relative;
     object-fit: cover;
     opacity: 75%;
+}
+
+.remove-card {
+    font-size: 12pt;
+    color: red;
+}
+
+.btn-remove {
+    height: 16px;
+    padding-top: 0px;
+    padding-bottom: 2px;
+    --box-shadow: none;
 }
