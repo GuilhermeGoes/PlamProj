@@ -1,4 +1,4 @@
-<app-header [title]="title" (click)="setCollection()"></app-header>
+<app-header [title]="title" (createCollection)="setCollection()"></app-header>
 
 <ion-content fullscreen>
   <ion-row *ngIf="!hasCover" class="add-img-row">
