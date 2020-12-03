@@ -25,6 +25,10 @@ export class ImageModalPage implements OnInit {
     )
   }
 
+  public selectImage(image) {
+    this.imgModalCtrl.dismiss(image);
+  }
+
   public dismissModal() {
     this.imgModalCtrl.dismiss({
       'dismissed': true

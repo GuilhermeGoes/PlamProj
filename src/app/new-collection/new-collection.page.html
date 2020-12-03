@@ -1,15 +1,19 @@
 <app-header [title]="title"></app-header>
 
 <ion-content fullscreen>
-  <ion-row class="add-img-row">
+  <ion-row *ngIf="!hasCover" class="add-img-row">
     <ion-button color="light" class="btn-add-img" (click)="presentModal()">
       <ion-icon name="image-outline" class="image-icon"></ion-icon>
       <ion-text class="add-img-text">Adicionar Capa</ion-text>
     </ion-button>
   </ion-row>
 
-  <ion-input  class="input-collection-name" color="secondary" placeholder="Nome da nova coleção"></ion-input>
-  <ion-input  class="input-collection-description" placeholder="Entre com a descrição..."></ion-input>
+  <div class="div-img" *ngIf="hasCover">
+    <img class="cover-img" [attr.src]="cover" />
+  </div>
+
+  <ion-input class="input-collection-name" color="secondary" placeholder="Nome da nova coleção"></ion-input>
+  <!-- <ion-input class="input-collection-description" placeholder="Entre com a descrição..."></ion-input> -->
   <ion-row *ngFor="let card of cards">
     <ion-card>
       <ion-card-header>

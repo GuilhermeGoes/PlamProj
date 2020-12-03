@@ -68,3 +68,17 @@ ion-toolbar {
         }
     }
 }
+
+.div-img {
+    display: flex;
+    width: 100vw;
+    height: 128px;
+    margin-bottom: 16px;
+}
+    
+.cover-img {
+    width: 100vw;
+    position: relative;
+    object-fit: cover;
+    opacity: 75%;
+}

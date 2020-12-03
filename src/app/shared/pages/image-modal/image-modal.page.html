@@ -15,7 +15,7 @@
   <ion-list>
     <ion-item lines="none" *ngFor="let image of images">
       <div class="div-img">
-        <img class="cover-img" (click)="dismissModal()" [attr.src]="image.urls.small" />
+        <img class="cover-img" (click)="selectImage(image.urls.small)" [attr.src]="image.urls.small" />
       </div>
     </ion-item>
   </ion-list>

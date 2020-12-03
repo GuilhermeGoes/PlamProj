@@ -14,15 +14,15 @@ export class NewCollectionPage implements OnInit {
   public title: String = 'NOVA COLEÇÃO';
   public cards: Array<number>;
   public cardsAdd: number = 2;
+  public cover: string = null;
+  public hasCover: boolean = false;
 
   public emptyCollection: Collection = {
     id: null,
     title: '',
     description: '',
     image: '',
-    card: 
-      [{frente: '',
-      verso: ''}]
+    // card: [{frente: '', verso: ''}]
   }
 
   public collections;
@@ -54,15 +54,17 @@ export class NewCollectionPage implements OnInit {
       cssClass: 'my-custom-class'
     });
 
-    // modal.onDidDismiss()
-    //   .then((data) => {
-    //     const user = data['data']; // Here's your selected user!
-    // });
+    modal.onDidDismiss()
+      .then((data) => {
+        this.cover = data['data'];
+        this.hasCover = true;
+      })
+
     return await modal.present();
   }
   
   public addCollections(){
-    this.saveCollection.addCollection(this.emptyCollection);
+    // this.saveCollection.addCollection(this.emptyCollection);
     this.newCollections = '';
     this.navCtrl.back();
   }
