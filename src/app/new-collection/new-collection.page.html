@@ -1,15 +1,23 @@
 <app-header [title]="title"></app-header>
 
 <ion-content fullscreen>
+<<<<<<< Updated upstream
   <ion-row class="add-img-row">
     <ion-button color="light" class="btn-add-img" (click)="presentModal()">
+=======
+  <!-- <ion-row>
+    <ion-button color="light" class="btn">
+>>>>>>> Stashed changes
       <ion-icon name="image-outline" class="image-icon"></ion-icon>
       <ion-text class="add-img-text">Adicionar Capa</ion-text>
     </ion-button>
   </ion-row>
+<<<<<<< Updated upstream
 
   <ion-input  class="input-collection-name" color="secondary" placeholder="Nome da nova coleção"></ion-input>
 
+=======
+>>>>>>> Stashed changes
   <ion-row *ngFor="let card of cards">
     <ion-card>
       <ion-card-header>
@@ -25,7 +33,8 @@
         </ion-item>
       </ion-card-content>
     </ion-card>
-  </ion-row>
+  </ion-row> -->
+  <app-collections-form [collection]="emptyCollection"></app-collections-form>
 </ion-content>
 
 <ion-toolbar >

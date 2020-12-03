@@ -26,6 +26,20 @@ export class CollectionService {
     { id: 3, title: 'Past Continuous - Revisão', description: 'In porta mauris ut eget pharetra dolor.', image: '../../assets/pastContinuous.png', card: []}
   ];
 
+   //private collections: Collection[] = [];
+
+  public addCollection(collection: Collection){
+    const maxId = Math.max(...this.collections.map(n => n.id), 0);
+    this.collections.push({
+      id: maxId + 1,
+      title: collection.title, 
+      description: collection.description,
+      image: collection.image,
+      card: collection.card
+    });
+    this.storeData();
+  }
+
   private storeData() {
     this.storage.set('collections', this.collections);
   }
@@ -33,4 +47,9 @@ export class CollectionService {
   public getCollections() {
     return this.collections;
   }
+
+  public find(id : number){
+    return {...this.collections.find(c => c.id === id)};
+  }
+
 }
