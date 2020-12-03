@@ -15,19 +15,25 @@
 
 <ion-content [fullscreen]="true">
   <ion-row>
-      <img class="card-img" src="../../assets/diretivas.jpg">
-        <ion-title class="card-title">
-          Título {{id}}
-        </ion-title>
-        <ion-text class="total-cards">2 cartões</ion-text>
-        <ion-card class="front-card" type="button" (click)="flipCard()">
-          <p class="card-subtitle">Frente</p>
-          <p class="card-body">Lorem</p>
-        </ion-card>
-        <ion-card class="back-card" id="testeVerso">
-          <p class="card-subtitle">Verso</p>
-          <p class="card-body">Ipsum</p>
-        </ion-card>
+    <img class="card-img" *ngIf="currentCollection.image" [attr.src]="currentCollection.image" />
+    <ion-title class="card-title">
+      {{currentCollection.title}}
+    </ion-title>
+    <ion-text class="total-cards">2 cartões</ion-text>
   </ion-row>
+  <ion-item lines="none" *ngFor="let card of cards; let indexCard = index; let firstCard = first;">
+    <ion-row class="card-dim">
+      <ion-col>
+        <ion-card *ngIf="isFront" class="front-card" type="button" (click)="flipCard()">
+          <p class="card-subtitle">Frente</p>
+          <p class="card-body">{{card.front}}</p>
+        </ion-card>
+        <ion-card *ngIf="isBack" class="front-card" type="button" (click)="flipCard()">
+          <p class="card-subtitle">Verso</p>
+          <p class="card-body">{{card.back}}</p>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-item>
 
 </ion-content>

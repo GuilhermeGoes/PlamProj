@@ -22,7 +22,7 @@
       <!-- <ion-card-content>
         <p>{{colecao.description}}</p>
       </ion-card-content> -->
-      <ion-button routerLink="/review/{{colecao.id}}" color="primary" type="button" size="default">Revisar conteúdo</ion-button>
+      <ion-button [routerLink]="['/review', colecao.id]" color="primary" type="button" size="default">Revisar conteúdo</ion-button>
     </ion-card>
   </ion-row>
 </ion-content>

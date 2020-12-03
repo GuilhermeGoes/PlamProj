@@ -3,7 +3,7 @@
   position: relative;
   object-fit: cover;
   object-position: center;
-  opacity : 0.5;
+  opacity : 75%;
   height: 128px;
   display: flex;
 }
@@ -38,6 +38,13 @@
     display: none;
 }
 
+.card-dim {
+  width: 100vw;
+
+}
+
 ion-card{
     width: 100%;
+    margin: 8px 0px 0px 0px;
+
 }
